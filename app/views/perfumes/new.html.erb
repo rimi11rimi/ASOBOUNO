@@ -1,0 +1,48 @@
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="container-sindan">
+        <div class="row">
+            <div class="col-12">
+                <p>Question1. 遊びの季節は…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>春夏</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>秋冬</p>
+            </div>
+
+            <div class="col-12">
+                <p>Question2. 遊びの天気は…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>晴れ・くもり</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>雨</p>
+            </div>
+
+            <div class="col-12">
+                <p>Question3. 友達との中間地は</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>埼玉よりの東京</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>神奈川寄りの東京</p>
+            </div>
+
+            <div class="col-12">
+                <p>Question4. 遊ぶときは…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>たくさん話したい</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>活動的でいたい</p>
+            </div>
+        </div>
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit "post" %>
+    </div>
+<% end %>

@@ -1,0 +1,63 @@
+<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+<h3>新規投稿ページ</h3>
+<%= form_for @play do |f| %>
+
+<div class="fruit">
+  <div class="momo">
+    <%= f.label :場所 %>
+    <%= f.text_field :title, :size => 30, class: "input-style"  %>
+  </div>
+
+  <div class="ichigo">
+    <%= f.label :誰と %>
+    <%= f.text_field :scene, :size => 30 %>
+  </div>
+
+  <div class="mikan">
+    <%= f.label :訪問時間帯 %>
+    <%= f.text_field :time, :size => 30 %>
+  </div>
+
+  <div class="banana">
+     <%= f.label :予算 %>
+      <%= f.text_field :price, :size => 30 %>
+  </div>
+
+  <div class="ringo">
+    <%= f.label :住所 %>
+    <%= f.text_field :address, :size => 30 %>
+  </div>
+
+  <div class="pain">
+    <%= f.label :コメント  %>
+    <%= f.text_area :body, :size => "30x2" %>
+  </div>
+
+  <div class="nasi">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <%= f.select :category, [["ごはん", "gohan"], ["ショッピング", "moll"],["スポーツ", "sport"] , ["アクティビティ", "activity"], ["鑑賞", "view"], ["自然", "sizenn"]], include_blank: "どの投稿？" %>
+ 
+  <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+            <td class="checkbox">
+              <%= tag.check_box id:"shachi" %>
+              <label for="syachi"></label>
+            </td>
+            <%= tag.text %>
+        <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", plays_path %>
+
+<link rel="stylesheet" type="text/css" href="layouts/plays.scss">

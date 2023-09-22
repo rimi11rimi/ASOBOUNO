@@ -1,0 +1,60 @@
+
+<h3>投稿を検索</h3>
+<div class="search_container">
+<form action="/plays" accept-charset="UTF-8" method="get">
+        <input type="text" name="search" id="search" value="" placeholder="キーワード">
+        <button name="button" type="submit" class="applications_searchbutton">
+        <i class="fa-solid fa-magnifying-glass" style="color: #9bbbf3;"></i>
+        </button>
+</form>
+</div>
+
+
+<h2 class="heading-003">投稿一覧</h2>
+<div class="plays-container">
+  <% @plays.each do |t| %> 
+    <%= image_tag t.user.image_url, size: "50x40" if t.user.image? %>
+    <div class="ikura">
+   <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    </div>
+  <div class="note8">
+    <div class="play">
+      <%= t.title %>
+      <br>
+      <%= t.body %>
+      <br>
+      <%= t.scene %>
+      <br>
+      <%= t.time %>
+      <br>
+      <%= t.price %>
+      <br>
+      <%= t.address %>
+      <br>
+ </div>  
+
+<% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+          <%= link_to play_like_path(id: t.id, play_id: t.id), method: :delete do %>
+            <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to play_likes_path(id: t.id, play_id: t.id), method: :post do %>
+            <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+      <% end %>
+   <% else %>
+      <i class="far fa-heart"></i><%= t.likes.count %>
+   <% end %>
+   <br>
+      
+          <%= link_to "詳細へ", play_path(t.id) %>
+          <% if user_signed_in? && current_user.id == t.user_id %>
+            <%= link_to "編集する", edit_play_path(t.id) %>
+          <% end %>
+        
+   <% end %>
+   </div>
+</div>
+  
+ 

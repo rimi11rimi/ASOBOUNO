@@ -1,0 +1,26 @@
+<div class=maguro>
+<%= link_to "新規投稿へ", new_play_path%>
+</div>
+
+
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
+<%= link_to "ごはん", plays_gohan_path %>
+<%= link_to "ショッピング", plays_moll_path %>
+<%= link_to "スポーツ", plays_sport_path %>
+<%= link_to "アクティビティ", plays_activity_path %>
+<%= link_to "鑑賞", plays_view_path %>
+<%= link_to "自然", plays_sizenn_path %>
+
+<%= form_tag({controller:"plays",action:"index"}, method: :get) do %>
+  <%= select_tag :tag_search, options_from_collection_for_select(@tags, "id","name") %>
+  <%= submit_tag "検索する" %>
+<% end %>
+
+<%= form_tag({controller:"plays",action:"index"}, method: :get) do %>
+  <%= text_field_tag :tag %>
+  <%= submit_tag 'タグを追加' %>
+<% end %>

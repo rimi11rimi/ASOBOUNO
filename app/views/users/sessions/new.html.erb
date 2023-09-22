@@ -1,0 +1,29 @@
+
+
+<div class="form">
+<div class="login-page">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="username">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"EMAIL",class:"sake" %>
+    </div>
+
+
+    <div class="password">
+      <%= f.password_field :password, autocomplete: "current-password",placeholder:"PASSWORD" ,class:"hamachi"%>
+    </div>
+
+
+    <div class="login">
+    　<%= f.submit "login",class:"btn btn-border-shadow btn-border-shadow--color2"%>
+    </div>
+
+
+    <% if devise_mapping.rememberable? %>
+    <% end %>
+  <% end %>
+</div>
+</div>
+
+<div class="option">
+<%= render "users/shared/links" %>
+</div>

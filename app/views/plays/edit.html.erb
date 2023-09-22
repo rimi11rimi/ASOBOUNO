@@ -1,0 +1,39 @@
+<%= form_for @play do |f| %>
+    
+    <%= f.label :場所 %>
+    <%= f.text_field :title, :size => 30 %>
+    
+    <%= f.label :誰と %>
+    <%= f.text_field :scene, :size => 30 %>
+  
+    <%= f.label :訪問時間帯 %>
+    <%= f.text_field :time, :size => 30 %>
+
+    <%= f.label :予算 %>
+    <%= f.text_field :price, :size => 30 %>
+
+    <%= f.label :住所 %>
+    <%= f.text_field :address, :size => 30 %>
+
+    <%= f.label :コメント  %>
+    <%= f.text_area :body, :size => "30x2" %>
+
+    <div class="field">
+<%= f.label :image %>
+<%= f.file_field :image %>
+</div>
+
+    <%= f.select :category, [["ごはん", "gohan"], ["ショッピング", "moll"],["スポーツ", "sport"] , ["アクティビティ", "activity"], ["鑑賞", "view"], ["自然", "sizenn"]], include_blank: "どの投稿？" %>
+    
+    <div class='form-group'>
+<%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+            <%= tag.check_box class: 'form-check-input' %>
+            <%= tag.text %>
+        <% end %>
+    </div>
+<% end %>
+</div>
+    <%= f.submit "編集する" %>
+  <% end %>

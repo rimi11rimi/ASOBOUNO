@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangout</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/4bab18e5d4.js" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="layouts/application.css">
+  </head>
+
+  <body>
+ <header>
+  <h1>ASOBOUNO</h1>
+  <div class="header-list">
+   <ul>
+    <% if user_signed_in? %>
+     <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete ,class:"logout" %></li>
+     <li><%= link_to "ホーム", plays_path %></li>
+     <li><%= link_to "新規投稿",new_play_path %></li>
+    <% else %>
+     <li><%= link_to "新規登録", new_user_registration_path %></li>
+     <li><%= link_to "ログイン", new_user_session_path %></li>
+     <li><%= link_to "ホーム", plays_path %></li>
+      <li><%= link_to "新規投稿",new_play_path %></li>
+    <% end %>
+   </ul>
+  </div>
+ </header>
+ <main>
+  <%= yield %>
+ </main>
+</body>
+
+</html>
