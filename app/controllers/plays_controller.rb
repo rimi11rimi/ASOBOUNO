@@ -25,14 +25,22 @@ class PlaysController < ApplicationController
     @plays = Play.all
   end
 
+  def top
+    @plays = Play.all
+  end
 
-  
+  def all
+    @plays = Play.all
+  end
+
+
+
 
   def index
     @plays= Play.all
     @tags = Tag.all
     @plays = @plays.where("title LIKE ? ",'%' + params[:search] + '%') if params[:search].present?
-    #もしタグ検索したら、post_idsにタグを持ったidをまとめてそのidで検索
+    
     if params[:tag_ids].present?
       play_ids = []
       params[:tag_ids].each do |key, value| 

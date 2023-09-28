@@ -30,7 +30,7 @@
 }
 
 .username {
-  background-color: #4daf7c;
+  background-color: #D8B4F8;
 }
 
 .username::after {
@@ -40,14 +40,14 @@
   position: absolute;
   border-style: solid;
   border-width: 0.5em 0.469em 0 0.469em;
-  border-color: #4daf7c transparent transparent transparent;
+  border-color: #D8B4F8 transparent transparent transparent;
   top: 4,5em;
   left: 50%;
   margin-left: -0.496em;
 }
 
 .password {
-  background-color: #404241;
+  background-color: #FFC7EA;
 }
 
 .password::after {
@@ -57,14 +57,14 @@
   position: absolute;
   border-style: solid;
   border-width: 0.5em 0.469em 0 0.469em;
-  border-color: #404241 transparent transparent transparent;
+  border-color: #FFC7EA transparent transparent transparent;
   top: 9em;
   left: 50%;
   margin-left: -0.496em;
 }
 
 .login {
-  background-color: #e9c85d;
+  background-color: #FBF0B2;
 }
 
 .login btn btn-border-shadow btn-border-shadow--color2 {
@@ -89,7 +89,7 @@ input[type="submit"] {
   margin-left: 2.1875em;
   margin-top: 1em;
   font-family: "Bebas Neue", Arial;
-  background-color: #e9c85d;
+  background-color: #FBF0B2;
 }
 
 ::placeholder {
@@ -125,7 +125,7 @@ input[type="submit"] {
   margin-left: 2.1875em;
   margin-top: 1em;
   font-family: "Bebas Neue", Arial;
-  background-color: #4daf7c;
+  background-color: #D8B4F8;
 
 
 }
@@ -143,7 +143,83 @@ input[type="submit"] {
   margin-left: 2.1875em;
   margin-top: 1em;
   font-family: "Bebas Neue", Arial;
-  background-color: #424240;
+  background-color: #FFC7EA;
+}
 
+h2{
+  padding:0 .4em .2em;
+  border-bottom: 3px dotted #d2c098;
+  background-color: #ffffff;
+  color: #333333;
+  margin: 30px;
+}
 
+.green{
+  display: flex;
+  padding: 20px;
+}
+
+.red{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  font-size: 20px;
+  height: max-content;
+  margin: 20px;
+}
+
+.red:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.red p {
+  margin: 20px; 
+  padding: 0;
+}
+
+.mama{
+  margin:2em 0;
+  position: relative;
+  padding: 50px;
+  border: solid 2px #ffcb8a;
+  border-radius: 3px 0 3px 0;
+  margin: 10px;
+  font-size: 20px;
+}
+.mama:before,.mama:after
+{
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 2px #ffcb8a;
+  border-radius: 50%;
+}
+.mama:after {
+  top:-12px;
+  left:-12px;
+}
+.mama:before {
+  bottom:-12px;
+  right:-12px;
+}
+.mama p {
+  margin: 0; 
+  padding: 0;
+}
+.papa{
+  display: flex;
+}
+.ane{
+  margin: 10px;
 }

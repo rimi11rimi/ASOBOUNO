@@ -1,6 +1,9 @@
+<h4>下記の質問に１個づつ答えてください！！</h4>
+
 <%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
     <div class="container-sindan">
         <div class="row">
+        <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
             <div class="col-12">
                 <p>Question1. 遊びの季節は…</p>
             </div>
@@ -10,6 +13,7 @@
             <div class="col-6">
                 <p><%= f.check_box :question, {multiple: true}, "2", nil %>秋冬</p>
             </div>
+
 
             <div class="col-12">
                 <p>Question2. 遊びの天気は…</p>
@@ -21,6 +25,7 @@
                 <p><%= f.check_box :question, {multiple: true}, "2", nil %>雨</p>
             </div>
 
+
             <div class="col-12">
                 <p>Question3. 友達との中間地は</p>
             </div>
@@ -30,6 +35,7 @@
             <div class="col-6">
                 <p><%= f.check_box :question, {multiple: true}, "2", nil %>神奈川寄りの東京</p>
             </div>
+
 
             <div class="col-12">
                 <p>Question4. 遊ぶときは…</p>
@@ -46,3 +52,5 @@
         <%= f.submit "post" %>
     </div>
 <% end %>
+
+

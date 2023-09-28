@@ -1,8 +1,9 @@
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <h3>新規投稿ページ</h3>
-<%= form_for @play do |f| %>
 
-<div class="fruit">
+
+  <%= form_for @play do |f| %>
+  <div class="fruit">
   <div class="momo">
     <%= f.label :場所 %>
     <%= f.text_field :title, :size => 30, class: "input-style"  %>
@@ -44,10 +45,7 @@
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
     <div class='form-check'>
         <%= tag.label class: 'form-check-label' do %>
-            <td class="checkbox">
               <%= tag.check_box id:"shachi" %>
-              <label for="syachi"></label>
-            </td>
             <%= tag.text %>
         <% end %>
     </div>
@@ -58,6 +56,5 @@
 <%= f.submit "投稿する" %>
 <% end %>
 
-<%= link_to "一覧に戻る", plays_path %>
 
 <link rel="stylesheet" type="text/css" href="layouts/plays.scss">

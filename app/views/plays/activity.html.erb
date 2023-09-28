@@ -1,4 +1,4 @@
-<h1>自分の題名</h1>
+
 <h3>一覧ページ</h3>
 
 <h3>投稿を検索</h3>
@@ -7,11 +7,6 @@
    <%= submit_tag '検索する'  %>
 <% end %>
 
-<%= link_to "新規投稿へ", new_play_path %>
-
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
 
 <div class="plays-container">
   <% @plays.each do |t| %>

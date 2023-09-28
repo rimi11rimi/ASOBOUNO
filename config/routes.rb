@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'plays/activity' => 'plays#activity'
   get 'plays/view' => 'plays#view'
   get 'plays/sizenn' => 'plays#sizenn'
+  get 'plays/top' => 'plays#top'
+  get 'plays/all' => 'plays#all'
+
 
   resources :plays
   devise_for :users, controllers: {   registrations: 'users/registrations',
@@ -20,5 +23,5 @@ Rails.application.routes.draw do
 
   resources :perfumes
 
-  root 'plays#index'
+  root 'plays#all'
 end

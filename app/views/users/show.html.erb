@@ -1,27 +1,43 @@
-<h1>マイページ</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+<h3>マイページ</h3>
+<div class=green>  
+  <div class=blue>
+    <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+  </div>
+  
+  <div class=red>
+    <p>username : <%= @user.name %></p>
+    <p>email : <%= @user.email %></p>
+    <p>profile : <%= @user.profile %></p>
+  </div>
+</div>
 
 <% if current_user.id == @user.id %>
   <%= link_to "編集する", edit_user_registration_path %>
 <% end %>
 
 <h2>ユーザーの投稿一覧</h2>
-<% @user.plays.each do |t| %>
-  <%= t.user.name %>
-  <%= t.title %>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
-<% end %>
+<div class="papa">
+  <% @user.plays.each do |t| %>
+    <div class=ane>
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    </div>
+    <div class="mama">
+      <p>username :<%= t.user.name %><br>
+      <p>spot :<%= t.title %><br>
+      <%= link_to "詳細へ", play_path(t.id) %>
+    </div>
+  <% end %>
+</div>
 
-<!-- 以下はいいね機能を実装している場合-->
 <h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_plays.each do |t| %>
-  <%= t.user.name %>
-  <%= t.title %>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+<div class="papa">
+  <% @user.liked_plays.each do |t| %>
+    <div class=ane>
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    </div>
+    <div class="mama">
+      <p>username :<%= t.user.name %><br>
+      <p>spot : <%= t.title %><br>
+      <%= link_to "詳細へ", play_path(t.id) %>
+    </div>
 <% end %>
-<!-- ここまで-->
-
-<%= link_to "投稿一覧に戻る", plays_path %>
