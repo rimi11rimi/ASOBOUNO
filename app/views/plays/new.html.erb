@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 <h3>新規投稿ページ</h3>
 
@@ -43,12 +44,12 @@
  
   <div class='form-group'>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-    <div class='form-check'>
+      <div class='form-check'>
         <%= tag.label class: 'form-check-label' do %>
-              <%= tag.check_box id:"shachi" %>
+            <%= tag.check_box id:"shachi" %>
             <%= tag.text %>
         <% end %>
-    </div>
+      </div>
     <% end %>
   </div>
 </div>
